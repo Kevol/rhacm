@@ -30,8 +30,13 @@ Set the name of the application to virtualization-manage, select the openshift-g
 Configure the Git repository as follows, and click Next.
 
 **Parameter**	**Value**
+
 Type:	Git
+
 URL:	https://git.ocp4.example.com/do0016l/virtualization-manage.git
+
 Revision:	main
+
 Path:	virtualization/manifests
+
 Remote namespace:	virt-manage
