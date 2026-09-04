@@ -42,4 +42,4 @@ Path:	virtualization/manifests
 Remote namespace:	virt-manage
 
 
-!(virtualization/images/ge-argo-general.png)
+![argo](virtualization/images/ge-argo-general.png)
