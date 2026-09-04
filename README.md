@@ -40,3 +40,6 @@ Revision:	main
 Path:	virtualization/manifests
 
 Remote namespace:	virt-manage
+
+
+!(virtualization/images/ge-argo-general.png)
