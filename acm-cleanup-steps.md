@@ -79,3 +79,18 @@ oc get namespace open-cluster-management -o json | jq '.spec.finalizers = []' > 
 # 3. Post the cleaned payload directly to the cluster API raw finalize endpoint
 oc replace --raw "/api/v1/namespaces/open-cluster-management/finalize" -f ns-clean.json
 ```
+
+
+```bash
+ oc get validatingwebhookconfiguration,mutatingwebhookconfiguration | grep open-cluster-management
+ oc delete validatingwebhookconfiguration.admissionregistration.k8s.io managedclustersetbindingvalidators.admission.cluster.open-cluster-management.io
+ oc delete validatingwebhookconfiguration.admissionregistration.k8s.io managedclustervalidators.admission.cluster.open-cluster-management.io
+ oc delete validatingwebhookconfiguration.admissionregistration.k8s.io manifestworkvalidators.admission.work.open-cluster-management.io
+ oc delete validatingwebhookconfiguration.admissionregistration.k8s.io managedclustermutators.admission.cluster.open-cluster-management.io
+ oc delete mutatingwebhookconfiguration.admissionregistration.k8s.io/managedclustermutators.admission.cluster.open-cluster-management.io
+ oc get validatingwebhookconfiguration,mutatingwebhookconfiguration | grep open-cluster-management
+ oc get apiservice | grep False
+ oc get namespace open-cluster-management -o json | jq '.spec.finalizers = []' > ns-clean.json
+ oc replace --raw "/api/v1/namespaces/open-cluster-management/finalize" -f ns-clean.json
+
+```
